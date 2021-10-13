@@ -1,0 +1,53 @@
+﻿<Window x:Class="SampleBA.RootView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             WindowStartupLocation="CenterScreen"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="475"
+             Title="TOSHIBA e-STUDIO AddressBook Viewer Installer"
+             Icon="SetupIcon.bmp">
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Window.Resources>
+    
+    <Grid Background="GhostWhite">
+        <Button Content="Next" HorizontalAlignment="Left" Margin="235,279,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="341,279,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="0,269,0,0" Stroke="Black" VerticalAlignment="Top" Width="475"/>
+        <Label Content="Welcome" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0"/>
+        <Label Content="Repair" HorizontalAlignment="Left" Margin="95,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0" Visibility="{Binding RepairEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Label Content="License" HorizontalAlignment="Left" Margin="95,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0" Visibility="{Binding InstallEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Label Content="Settings" HorizontalAlignment="Left" Margin="190,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0"/>
+        <Label Content="Install" HorizontalAlignment="Left" Margin="285,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0"/>
+        <Label Content="Finish" HorizontalAlignment="Left" Margin="380,23,0,0" VerticalAlignment="Top" Width="95" Padding="20 0 0 0"/>
+        <Label FontWeight="Bold" FontSize="12.5" Content="Welcome to the TOSHIBA e-STUDIO AddressBook Viewer Setup" HorizontalAlignment="Left" Margin="11,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="The setup installer will install TOSHIBA e-STUDIO AddressBook Viewer  &#xD;&#xA;on your computer. Click Next to continue or Cancel to exit the Setup Wizard." HorizontalAlignment="Left" Margin="11,87,0,0" VerticalAlignment="Top" Height="55" Width="420"/>
+        <ComboBox HorizontalAlignment="Left" Margin="16,183,0,0" VerticalAlignment="Top" Width="215" SelectedIndex="4">
+            <ComboBoxItem Content="Chinese(Simplified)" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Chinese(Traditional)" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Danish" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Dutch" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="English" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Finnish" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="French" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="German" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Italian" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Japanese" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Norwegian" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Polish" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Portuguese(Brazilian)" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Russian" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Spanish" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Swedish" HorizontalAlignment="Left" Width="213"/>
+            <ComboBoxItem Content="Turkish" HorizontalAlignment="Left" Width="213"/>
+        </ComboBox>
+        <Label Content="Language Selection:" HorizontalAlignment="Left" Margin="12,157,0,0" VerticalAlignment="Top"/>
+        <Canvas HorizontalAlignment="Left" Height="11" Margin="0,5,0,0" VerticalAlignment="Top" Width="95" Background="LightBlue" DataContext="{Binding InstallationViewModel}" Visibility="{Binding WelcomeEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Canvas HorizontalAlignment="Left" Height="11" Margin="95,5,0,0" VerticalAlignment="Top" Width="95" Background="LightBlue" DataContext="{Binding InstallationViewModel}" Visibility="{Binding LicenseEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Canvas HorizontalAlignment="Left" Height="11" Margin="190,5,0,0" VerticalAlignment="Top" Width="95" Background="LightBlue" DataContext="{Binding InstallationViewModel}" Visibility="{Binding SettingsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Canvas HorizontalAlignment="Left" Height="11" Margin="285,5,0,0" VerticalAlignment="Top" Width="95" Background="LightBlue" DataContext="{Binding InstallationViewModel}" Visibility="{Binding InstallEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Canvas HorizontalAlignment="Left" Height="11" Margin="380,5,0,0" VerticalAlignment="Top" Width="95" Background="LightBlue" DataContext="{Binding InstallationViewModel}" Visibility="{Binding FinishEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+    </Grid>
+</Window>

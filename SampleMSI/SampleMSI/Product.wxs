@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="SampleMSI" Language="1033" Version="1.0.0.0" Manufacturer="test" UpgradeCode="7b49ed6a-7346-4360-a8b1-2ad28f8f095f">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SampleMSI" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    <UIRef Id="WixUI_Mondo"/>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SampleMSI" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			 <Component Id="ProductComponent" Guid="DDC61D05-6EA5-49DB-989F-46331350560A">
+         <File Id="test1" Source="C:\Users\kram\Desktop\License.rtf" Compressed="yes" KeyPath="yes"/>
+			 </Component> 
+		</ComponentGroup>
+	</Fragment>
+</Wix>
